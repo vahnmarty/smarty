@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->unsignedBigInteger('subject_id')->nullable();
             $table->longtext('contents');
+            $table->longtext('formatted_contents')->nullable();
             $table->float('price');
             $table->integer('status')->nullable();
             $table->timestamps();

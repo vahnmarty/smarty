@@ -10,7 +10,28 @@
         <div class="mx-auto lg:max-w-7xl lg:px-8">
             <h1 class="text-3xl font-bold">{{ $note->title }}</h1>
 
-            <div class="mt-8 leading-8">{!! $note->contents !!}</div>
+            <div class="mt-8 leading-8" id="app">{!! $note->contents !!}</div>
         </div>
     </div>
 </div>
+
+
+@push('scripts')
+<script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+<script>
+    function start()
+    {
+        var app = document.getElementById('app');
+
+        var typewriter = new Typewriter(app, {
+            loop: false
+        });
+
+        var contents = "{!! $note->contents !!}";
+
+        typewriter.typeString('Hello World!')
+            .pauseFor(2500)
+            .start();
+    }
+</script>
+@endpush
