@@ -12,7 +12,7 @@
 
                 @livewire('settings.autosave')
 
-                <a href="{{ route('notes.create') }}" class="flex items-center gap-3 px-6 py-2 transition bg-indigo-300 rounded-md hover:bg-indigo-400">
+                <!-- <a href="{{ route('notes.create') }}" class="flex items-center gap-3 px-6 py-2 transition bg-indigo-300 rounded-md hover:bg-indigo-400">
                     <x-heroicon-o-pencil class="w-4 h-4 "/>
                     <span class="text-sm">Save Draft</span>
                 </a>
@@ -20,12 +20,30 @@
                 <a href="{{ route('notes.create') }}" class="flex items-center gap-3 px-6 py-2 transition bg-green-300 rounded-md hover:bg-green-400">
                     <x-heroicon-o-save class="w-4 h-4 "/>
                     <span class="text-sm">Submit</span>
-                </a>
+                </a> -->
             </div>
         </header>
 
         <div class="lg:px-3 lg:py-6">
-            {{ $this->form }}
+            <form wire:submit.prevent="submit">
+
+                {{ $this->form }}
+
+
+                <div class="flex justify-end gap-3 mt-8">
+
+                    <button type="button" wire:click="save('draft')" class="flex items-center gap-3 px-6 py-2 transition bg-indigo-300 rounded-md hover:bg-indigo-400">
+                        <x-heroicon-o-pencil class="w-4 h-4 "/>
+                        <span class="text-sm">Save Draft</span>
+                    </button>
+    
+                    <button type="button" wire:click="save" class="flex items-center gap-3 px-6 py-2 transition bg-green-300 rounded-md hover:bg-green-400">
+                        <x-heroicon-o-save class="w-4 h-4 "/>
+                        <span class="text-sm">Submit</span>
+                    </button>
+
+                </div>
+            </form>
 
         </div>
     </div>

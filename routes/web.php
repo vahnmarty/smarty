@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Notes\ShowNote;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Notes\CreateNote;
 use App\Http\Livewire\Notes\IndexNotes;
@@ -33,6 +34,7 @@ Route::group(['middleware' => [ 'auth:sanctum', config('jetstream.auth_session')
 
     Route::get('notes', IndexNotes::class)->name('notes.index');
     Route::get('notes/create', CreateNote::class)->name('notes.create');
+    Route::get('notes/{uuid}', ShowNote::class)->name('notes.show');
 
 
 });

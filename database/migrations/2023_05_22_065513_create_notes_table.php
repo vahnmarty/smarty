@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('notes', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('team_id')->nullable();
             $table->string('title');

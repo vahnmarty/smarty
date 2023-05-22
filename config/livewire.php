@@ -86,9 +86,9 @@ return [
 
     'middleware_group' => [
         'web',
-        'universal',
-        InitializeTenancyByPath::class,
-        InitializeTenancyByDomain::class, // or whatever tenancy middleware you use
+        //'universal',
+        //InitializeTenancyByPath::class,
+        //InitializeTenancyByDomain::class, // or whatever tenancy middleware you use
     ],
 
     /*

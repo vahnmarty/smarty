@@ -11,7 +11,7 @@ use BenSampo\Enum\Enum;
  */
 final class NoteStatus extends Enum
 {
-    const OptionOne = 0;
-    const OptionTwo = 1;
-    const OptionThree = 2;
+    const Draft = 0;
+    const Published = 1;
+    const Archived = 2;
 }
