@@ -23,27 +23,16 @@
 
     <div class="flex">
 
-        <div class="w-64 h-full min-h-screen bg-white border-r">
-            <header class="p-8">
-                <div class="flex items-center gap-2">
-                    <img src="{{ asset('img/logo.png') }}" class="w-8 h-8" alt="">
-                    <h1 class="text-xl font-bold text-gray-700 uppercase">Smarty</h1>
-                </div>
-            </header>
+        @include('includes.user_sidebar')
 
-            <div>
-                <ul>
-                    <li>
-                        <a href="">
-                            <x-heroicon-s-home class="w-4 h-4" />
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <div class="flex-1 max-h-screen overflow-auto">
 
-        <div class="flex-1">
+            @include('includes.user_header')
 
+            <main class="lg:px-16 lg:py-6">
+                {{ $slot ?? '' }}
+                @yield('content')
+            </main>
         </div>
     </div>
 
