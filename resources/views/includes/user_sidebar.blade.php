@@ -9,18 +9,21 @@
         </header>
         <div>
             <ul>
-                <li class="px-8 py-3 transition bg-gray-100 border-r-2 border-green-400 hover:bg-gray-200">
-                    <a href="" class="inline-flex gap-3">
+                <x-sidebar-item href="{{ route('dashboard') }}" :active="request()->is('dashboard')">
+                    <x-slot name="icon">
                         <x-heroicon-o-home class="w-5 h-5" />
-                        <span>Dashboard</span>
-                    </a>
-                </li>
-                <li class="px-8 py-3">
-                    <a href="" class="inline-flex gap-3">
+                    </x-slot>
+                    Dashboard
+                </x-sidebar-item>
+
+                <x-sidebar-item href="{{ route('notes.index') }}" :active="request()->is('notes*')">
+                    <x-slot name="icon">
                         <x-heroicon-o-pencil-alt class="w-5 h-5" />
-                        <span>Notes</span>
-                    </a>
-                </li>
+                    </x-slot>
+                    Notes
+                </x-sidebar-item>
+
+                
                 <li class="px-8 py-3">
                     <a href="" class="inline-flex gap-3">
                         <x-heroicon-o-color-swatch class="w-5 h-5" />
@@ -31,6 +34,12 @@
                     <a href="" class="inline-flex gap-3">
                         <x-heroicon-o-newspaper class="w-5 h-5" />
                         <span>QBanks</span>
+                    </a>
+                </li>
+                <li class="px-8 py-3">
+                    <a href="{{ route('notes.index') }}" class="inline-flex gap-3">
+                        <x-heroicon-o-bookmark-alt class="w-5 h-5" />
+                        <span>Subjects</span>
                     </a>
                 </li>
             </ul>
