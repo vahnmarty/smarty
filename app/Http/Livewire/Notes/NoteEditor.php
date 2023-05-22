@@ -14,7 +14,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Str;
 
-class CreateNote extends Component implements HasForms
+class NoteEditor extends Component implements HasForms
 {
     use InteractsWithForms;
 
@@ -22,7 +22,7 @@ class CreateNote extends Component implements HasForms
     
     public function render()
     {
-        return view('livewire.notes.create-note');
+        return view('livewire.notes.note-editor');
     }
 
     protected function getFormSchema(): array 
