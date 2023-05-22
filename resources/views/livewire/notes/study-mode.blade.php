@@ -8,11 +8,15 @@
 
     <div class="py-12">
         <div class="mx-auto lg:max-w-7xl lg:px-8">
-            <h1 class="text-3xl font-bold">{{ $note->title }}</h1>
-
-            <div class="mt-8 leading-8" id="app">{!! $note->contents !!}</div>
+            <div class="mt-8 leading-8" id="app">{!! $study_material !!}</div>
         </div>
     </div>
+
+    @if(!$ready)
+    <div class="fixed inset-0 z-50 flex items-center justify-center bg-white/50 backdrop-blur-sm">
+        <button type="button" wire:click="$set('ready', true)" class="px-16 py-4 text-xl text-white bg-green-600 rounded-md hover:bg-green-700">Start</button>
+    </div>
+    @endif
 </div>
 
 

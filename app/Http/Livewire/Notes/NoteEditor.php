@@ -2,9 +2,12 @@
 
 namespace App\Http\Livewire\Notes;
 
+use Str;
 use App\Models\Note;
 use Livewire\Component;
+use App\Enums\CrudAction;
 use App\Enums\NoteStatus;
+use App\Jobs\GenerateStudyMaterial;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Contracts\HasForms;
@@ -12,13 +15,14 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
-use Str;
 
 class NoteEditor extends Component implements HasForms
 {
     use InteractsWithForms;
 
     public $title, $subject_id, $contents, $ai_prompt;
+
+    public $action = CrudAction::Create;
     
     public function render()
     {
@@ -57,6 +61,13 @@ class NoteEditor extends Component implements HasForms
         $note->price = 0.00;
         $note->status = $status  == 'draft' ? NoteStatus::Draft : NoteStatus::Published;
         $note->save();
+        
+
+        if($this->action == CrudAction::Create)
+        {
+            GenerateStudyMaterial::dispatch($note);
+        }
+
 
         return redirect()->route('notes.show', $note->uuid);
     }
