@@ -20,6 +20,9 @@ return new class extends Migration
             $table->unsignedBigInteger('subject_id')->nullable();
             $table->longtext('contents');
             $table->longtext('formatted_contents')->nullable();
+            $table->timestamp('generated_at')->nullable();
+            $table->integer('times_studied')->nullable()->default(0);
+            $table->timestamp('last_studied_at')->nullable();
             $table->float('price');
             $table->integer('status')->nullable();
             $table->timestamps();

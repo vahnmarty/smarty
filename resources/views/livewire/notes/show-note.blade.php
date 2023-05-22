@@ -13,11 +13,6 @@
             <div class="flex gap-3">
 
 
-                <a href="#" wire:click.prevent="generateStudy" class="flex items-center gap-3 px-6 py-2 transition bg-gray-300 rounded-md hover:bg-gray-400">
-                    <x-heroicon-o-eye class="w-4 h-4 "/>
-                    <span class="text-sm">Generate</span>
-                </a>
-
                 @if($note->formatted_contents)
                 <a href="{{ route('notes.study', $note->uuid) }}"  class="flex items-center gap-3 px-6 py-2 transition bg-gray-300 rounded-md hover:bg-gray-400">
                     <x-heroicon-o-eye class="w-4 h-4 "/>
